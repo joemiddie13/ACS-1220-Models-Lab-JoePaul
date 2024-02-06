@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<p>Welcome to {{ user.username }}'s profile.</p>
+
+{% if user.favorite_books %}
+    <p>{{ user.username }}'s favorite books are:</p>
+    <ul>
+        {% for book in user.favorite_books %}
+            <li>{{ book.title }} by {{ book.author.name }}</li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No favorite books listed.</p>
+{% endif %}
+
+{% endblock %}
